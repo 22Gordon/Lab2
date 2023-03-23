@@ -18,8 +18,8 @@ class MainActivity : AppCompatActivity() {
 
         for (i in 0 until 500) {
             val population = i * 500
-            val size = if (population < 500) "pequeno" else "grande"
-            myList.add(Place("Country $i", size, "Capital $i", "President $i"))
+            //val size = if (population < 500) "pequeno" else "grande"
+            myList.add(Place("Country $i", population, "Capital $i", "President $i"))
         }
 
         recycler_view = findViewById<RecyclerView>(R.id.recView)
