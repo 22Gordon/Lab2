@@ -24,10 +24,11 @@ class LineAdapter(val list: ArrayList<Place>): RecyclerView.Adapter<LineViewHold
 
     override fun onBindViewHolder(holder: LineViewHolder, position: Int) {
         val currentPlace = list[position]
+        val size = if(currentPlace.habitants < 5000) "pequeno" else "grande"
 
-        holder._capital.text = currentPlace.capital + " - (" + currentPlace.country + ")"
-        holder._country.text = currentPlace.country
-        holder._habitantes.text = currentPlace.habitants.toString()
+        holder._country.text = currentPlace.country + " - (" + currentPlace.capital + ")"
+        holder._habitantes.text = size
+        holder._presidentes.text = currentPlace.president
     }
 
 }
@@ -37,11 +38,13 @@ class LineViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
     val _capital: TextView
     val _country: TextView
     val _habitantes: TextView
+    val _presidentes: TextView
 
     init {
         _capital = itemView.findViewById(R.id.txtcapital)
         _country = itemView.findViewById(R.id.txtcountry)
         _habitantes = itemView.findViewById(R.id.txthabitants)
+        _presidentes = itemView.findViewById(R.id.txtpresident)
     }
 
 }
